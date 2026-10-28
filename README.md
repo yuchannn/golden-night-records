@@ -61,3 +61,4 @@ These fields are intentionally empty. The public site does not invent them.
 - Artist biographies (`biography`) and artist listening or social links (`links`).
 - Release dates, types, descriptions, and verified Spotify, Apple Music, or YouTube URLs. Detail views say 收聽連結即將公布.
 - Optional authorized audio files.
+# golden-night-records
