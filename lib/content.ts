@@ -57,6 +57,8 @@ export type Artist = {
 
 export type Release = {
   id: string;
+  /** English listening URL, for example No-Rush. */
+  listenSlug: string;
   title: string;
   artistId: string;
   artwork: ImageAsset | null;
@@ -136,6 +138,7 @@ export const artists: Artist[] = [
 export const releases: Release[] = [
   {
     id: "bie-ba-kou-hong-ca-diao",
+    listenSlug: "Dont-Wipe-the-Lipstick",
     title: "別把口紅擦掉",
     artistId: "romy-lo",
     artwork: {
@@ -159,6 +162,7 @@ export const releases: Release[] = [
   },
   {
     id: "na-wei-xiao-jie-shi-shei",
+    listenSlug: "Whos-That-Lady",
     title: "那位小姐是誰？",
     artistId: "romy-lo",
     artwork: {
@@ -182,6 +186,7 @@ export const releases: Release[] = [
   },
   {
     id: "bu-yong-song-le",
+    listenSlug: "Ill-Go-Myself",
     title: "不用送了",
     artistId: "yan",
     artwork: {
@@ -205,6 +210,7 @@ export const releases: Release[] = [
   },
   {
     id: "bu-ji",
+    listenSlug: "No-Rush",
     title: "不急",
     artistId: "yan",
     artwork: {
@@ -228,6 +234,7 @@ export const releases: Release[] = [
   },
   {
     id: "wo-cai-mei-you-deng-ni",
+    listenSlug: "I-Wasnt-Waiting",
     title: "我才沒有等你",
     artistId: "romy-lo",
     artwork: {
@@ -251,6 +258,7 @@ export const releases: Release[] = [
   },
   {
     id: "hao-xiao-xi",
+    listenSlug: "Good-News",
     title: "好消息",
     artistId: "yan",
     artwork: {
@@ -274,6 +282,7 @@ export const releases: Release[] = [
   },
   {
     id: "huai-de-zhen-ke-ai",
+    listenSlug: "Adorably-Bad",
     title: "壞得真可愛",
     artistId: "romy-lo",
     artwork: {
@@ -297,6 +306,7 @@ export const releases: Release[] = [
   },
   {
     id: "shao-lai",
+    listenSlug: "Spare-Me",
     title: "少來",
     artistId: "yan",
     artwork: {
@@ -320,6 +330,7 @@ export const releases: Release[] = [
   },
   {
     id: "shei-zhun-ni-jin-wo-meng-li",
+    listenSlug: "Who-Invited-You",
     title: "誰准你進我夢裡？",
     artistId: "romy-lo",
     artwork: {
@@ -343,6 +354,7 @@ export const releases: Release[] = [
   },
   {
     id: "kan-cuo",
+    listenSlug: "Mistaken",
     title: "看錯",
     artistId: "yan",
     artwork: {
@@ -366,6 +378,7 @@ export const releases: Release[] = [
   },
   {
     id: "pian-pian-kan-shang-ni",
+    listenSlug: "You-of-All-People",
     title: "偏偏看上你",
     artistId: "romy-lo",
     artwork: {
@@ -389,6 +402,7 @@ export const releases: Release[] = [
   },
   {
     id: "ni-bu-wen-le",
+    listenSlug: "You-Stopped-Asking",
     title: "你不問了",
     artistId: "yan",
     artwork: {
@@ -412,6 +426,7 @@ export const releases: Release[] = [
   },
   {
     id: "jie-kou",
+    listenSlug: "Watch-What-I-Eat",
     title: "戒口",
     artistId: "yan",
     artwork: {
@@ -434,6 +449,7 @@ export const releases: Release[] = [
   },
   {
     id: "xian-jie-ni",
+    listenSlug: "Borrowed-for-Now",
     title: "先借你",
     artistId: "yan",
     artwork: {
@@ -457,6 +473,7 @@ export const releases: Release[] = [
   },
   {
     id: "bu-yong-jie-hua",
+    listenSlug: "No-Need-to-Reply",
     title: "不用接話",
     artistId: "yan",
     artwork: {

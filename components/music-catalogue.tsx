@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import { artists, type Release } from "@/lib/content";
 import { getArtistById } from "@/lib/catalogue";
 import { ReleaseCard } from "@/components/release-card";
-import { ReleaseDialog } from "@/components/release-dialog";
 import { cx } from "@/lib/cx";
 
 type FilterId = "all" | string;
@@ -17,8 +16,6 @@ export function MusicCatalogue({
   enableFilters?: boolean;
 }) {
   const [filter, setFilter] = useState<FilterId>("all");
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [trigger, setTrigger] = useState<HTMLElement | null>(null);
 
   const visible = useMemo(() => {
     const selected =
@@ -27,9 +24,6 @@ export function MusicCatalogue({
         : releases.filter((release) => release.artistId === filter);
     return [...selected].sort((a, b) => a.featuredOrder - b.featuredOrder);
   }, [enableFilters, filter, releases]);
-
-  const active = releases.find((release) => release.id === activeId) ?? null;
-  const activeArtist = active ? getArtistById(active.artistId) ?? null : null;
 
   return (
     <div>
@@ -65,26 +59,12 @@ export function MusicCatalogue({
             if (!artist) return null;
             return (
               <li key={release.id}>
-                <ReleaseCard
-                  release={release}
-                  artist={artist}
-                  onOpen={(next, button) => {
-                    setTrigger(button);
-                    setActiveId(next.id);
-                  }}
-                />
+                <ReleaseCard release={release} artist={artist} />
               </li>
             );
           })}
         </ul>
       )}
-
-      <ReleaseDialog
-        release={active}
-        artist={activeArtist}
-        trigger={trigger}
-        onClose={() => setActiveId(null)}
-      />
     </div>
   );
 }
