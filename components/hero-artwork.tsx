@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, type TransitionEvent } from "react";
-import { heroReleaseIds } from "@/lib/content";
-import { artistName, getArtistById, getReleaseById } from "@/lib/catalogue";
+import { artistName, getArtistById, getHeroReleases } from "@/lib/catalogue";
 import { CoverArt } from "@/components/cover-art";
+import { NewMark } from "@/components/new-mark";
 import { ReleaseDialog } from "@/components/release-dialog";
 
 const COPIES = 3;
@@ -35,10 +35,9 @@ function useVisibleCount() {
 }
 
 export function HeroArtwork() {
-  const sleeves = heroReleaseIds.flatMap((id) => {
-    const release = getReleaseById(id);
-    const artist = release ? getArtistById(release.artistId) : undefined;
-    return release && artist ? [{ release, artist }] : [];
+  const sleeves = getHeroReleases().flatMap((release) => {
+    const artist = getArtistById(release.artistId);
+    return artist ? [{ release, artist }] : [];
   });
   const count = sleeves.length;
   const visible = useVisibleCount();
@@ -179,7 +178,10 @@ export function HeroArtwork() {
                     </button>
                     <figcaption className="mt-3">
                       <p className="font-serif-tc text-lg font-semibold leading-tight">{release.title}</p>
-                      <p className="mt-1 text-sm text-ink-soft">{name}</p>
+                      <p className="mt-1 text-sm text-ink-soft">
+                        {name}
+                        <NewMark release={release} />
+                      </p>
                     </figcaption>
                   </figure>
                 </li>

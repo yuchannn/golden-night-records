@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Artist, Release } from "@/lib/content";
 import { artistName, listenPath } from "@/lib/catalogue";
 import { CoverArt } from "@/components/cover-art";
+import { NewMark } from "@/components/new-mark";
 
 export function ReleaseCard({ release, artist }: { release: Release; artist: Artist }) {
   const name = artistName(artist);
@@ -27,7 +28,10 @@ export function ReleaseCard({ release, artist }: { release: Release; artist: Art
           {release.title}
         </Link>
       </h3>
-      <p className="mt-2 text-sm leading-6 text-ink-soft">{name}</p>
+      <p className="mt-2 text-sm leading-6 text-ink-soft">
+        {name}
+        <NewMark release={release} />
+      </p>
       {release.type || release.date ? (
         <p className="mt-1 text-sm text-ink-soft">
           {[release.type, release.date].filter(Boolean).join(" · ")}

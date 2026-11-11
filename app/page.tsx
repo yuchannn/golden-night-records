@@ -5,6 +5,7 @@ import { ChapterMark, NextPage } from "@/components/chapter-mark";
 import { ChapterRail, ReadingBookmark } from "@/components/chapter-rail";
 import { HeroArtwork } from "@/components/hero-artwork";
 import { MusicCatalogue } from "@/components/music-catalogue";
+import { NewReleaseNotice } from "@/components/new-release-notice";
 import { SectionHeading } from "@/components/section-heading";
 
 export default function HomePage() {
@@ -16,27 +17,27 @@ export default function HomePage() {
     <>
       <ReadingBookmark />
       <ChapterRail />
-      <section
-        id="opening"
-        className="mx-auto max-w-[76rem] scroll-mt-24 px-5 pt-8 pb-14 sm:px-8 lg:pt-12 lg:pb-16"
-      >
-        <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-          <ChapterMark id="opening" className="mb-0" />
-          <p lang="en" className="font-display text-lg italic sm:text-xl">
-            Stay for another song.
-          </p>
-        </div>
-        <div className="mt-6 flex flex-col gap-6 sm:mt-8 lg:flex-row lg:items-end lg:justify-between">
-          <h1 className="motion-safe:animate-rise font-serif-tc text-[clamp(3rem,5.6vw,4.75rem)] font-semibold leading-[1.08]">
-            <span className="block">把今宵，</span>
-            <span className="block">留在歌裡。</span>
-          </h1>
-          <p className="max-w-sm text-base leading-8 lg:pb-1">
-            金宵唱片，來自台北。收錄心動、試探，和那些還沒說出口的話。
-          </p>
-        </div>
-        <div className="mt-8 sm:mt-10">
-          <HeroArtwork />
+      <section id="opening" className="scroll-mt-24">
+        <NewReleaseNotice />
+        <div className="mx-auto max-w-[76rem] px-5 pt-8 pb-14 sm:px-8 lg:pt-12 lg:pb-16">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+            <ChapterMark id="opening" className="mb-0" />
+            <p lang="en" className="font-display text-lg italic sm:text-xl">
+              Stay for another song.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-col gap-6 sm:mt-8 lg:flex-row lg:items-end lg:justify-between">
+            <h1 className="motion-safe:animate-rise font-serif-tc text-[clamp(3rem,5.6vw,4.75rem)] font-semibold leading-[1.08]">
+              <span className="block">把今宵，</span>
+              <span className="block">留在歌裡。</span>
+            </h1>
+            <p className="max-w-sm text-base leading-8 lg:pb-1">
+              金宵唱片，來自台北。收錄心動、試探，和那些還沒說出口的話。
+            </p>
+          </div>
+          <div className="mt-8 sm:mt-10">
+            <HeroArtwork />
+          </div>
         </div>
       </section>
 

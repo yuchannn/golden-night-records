@@ -24,6 +24,7 @@ All public copy, contacts, and catalogue data live in [`lib/content.ts`](lib/con
 - **Label:** `nameEn`, `nameZh`, city, `email`, `siteUrl`, `social`, and `logo`.
 - **Artists:** `artists`. Use `biography: null` until a real biography is approved. `links` are verified listening or social URLs only.
 - **Releases:** `releases`. `featuredOrder` controls the 金宵選曲 sequence and is separate from `date`. Leave `date`, `type`, `description`, `audio`, and `listeningLinks` null until they are confirmed.
+- **New song:** `newReleaseId`. The release it names is announced under the header on the homepage, marked 新歌, and placed first in the hero carousel and 金宵選曲. Point it at the next new release, or set it to `null` to take the notice down.
 - **About:** `aboutParagraphs`.
 
 `email` is shown as a `mailto:` link only when it is a valid address. `social` and artist `links` are shown only for `http` or `https` URLs. Listening links accept Spotify (`open.spotify.com`), Apple Music (`music.apple.com`), YouTube (`youtube.com`, `youtu.be`, `music.youtube.com`), or `service: "other"` with your own label. Search-result URLs are ignored.

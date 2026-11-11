@@ -495,7 +495,37 @@ export const releases: Release[] = [
       },
     ],
   },
+  {
+    id: "bu-tai-zi-ran",
+    listenSlug: "Not-Quite-Natural",
+    title: "不太自然",
+    artistId: "yan",
+    artwork: {
+      src: "/images/releases/bu-tai-zi-ran.jpg",
+      width: 1254,
+      height: 1254,
+      alt: "《不太自然》封面，皺紙上一藍一橘兩枚指紋，交疊在一起。",
+    },
+    featuredOrder: 17,
+    date: null,
+    type: null,
+    description:
+      "話說得快，眼神卻躲得慢。言川 YAN 在《不太自然》裡，用輕快的律動唱出想裝作沒事、卻處處露餡的心動。笑得太早，回答太慢，連一句「都可以」都顯得刻意。那些還沒準備好說出口的喜歡，早已藏在每個不太自然的瞬間。",
+    audio: null,
+    listeningLinks: [
+      {
+        service: "spotify",
+        url: "https://open.spotify.com/track/5Efv6TxAYyOmhJn7rmfpXA",
+      },
+    ],
+  },
 ];
+
+/**
+ * The song announced at the top of the homepage. While it is named here, it also leads
+ * the hero carousel and 金宵選曲, ahead of `featuredOrder`. Set to null to take the notice down.
+ */
+export const newReleaseId: string | null = "bu-tai-zi-ran";
 
 export const navigation = [
   { id: "artists", labelZh: "藝人", labelEn: "Artists" },
@@ -528,6 +558,7 @@ export const heroReleaseIds = [
   "jie-kou",
   "xian-jie-ni",
   "bu-yong-jie-hua",
+  "bu-tai-zi-ran",
 ] as const;
 
 export const aboutParagraphs = [

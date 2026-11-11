@@ -1,4 +1,12 @@
-import { artists, label, releases, type Artist, type Release } from "@/lib/content";
+import {
+  artists,
+  heroReleaseIds,
+  label,
+  newReleaseId,
+  releases,
+  type Artist,
+  type Release,
+} from "@/lib/content";
 import { getSiteUrl, isEmail, resolveExternalLinks } from "@/lib/urls";
 
 export function getArtistById(id: string): Artist | undefined {
@@ -13,12 +21,36 @@ export function getOtherArtist(id: string): Artist | undefined {
   return artists.find((artist) => artist.id !== id);
 }
 
+export function isNewRelease(release: Release): boolean {
+  return release.id === newReleaseId;
+}
+
+/** The announced song leads. Everything else keeps its editorial order. */
+export function compareFeatured(a: Release, b: Release): number {
+  return (
+    Number(isNewRelease(b)) - Number(isNewRelease(a)) || a.featuredOrder - b.featuredOrder
+  );
+}
+
 export function getFeaturedReleases(): Release[] {
-  return [...releases].sort((a, b) => a.featuredOrder - b.featuredOrder);
+  return [...releases].sort(compareFeatured);
 }
 
 export function getReleaseById(id: string): Release | undefined {
   return releases.find((release) => release.id === id);
+}
+
+export function getNewRelease(): Release | undefined {
+  return newReleaseId ? getReleaseById(newReleaseId) : undefined;
+}
+
+/** Hero carousel order, with the announced song first. */
+export function getHeroReleases(): Release[] {
+  const ids: string[] = heroReleaseIds.filter((id) => id !== newReleaseId);
+  if (newReleaseId) ids.unshift(newReleaseId);
+  return ids
+    .map((id) => getReleaseById(id))
+    .filter((release): release is Release => Boolean(release));
 }
 
 export function getReleaseByListenSlug(slug: string): Release | undefined {

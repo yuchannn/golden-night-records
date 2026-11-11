@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { artists, type Release } from "@/lib/content";
-import { getArtistById } from "@/lib/catalogue";
+import { compareFeatured, getArtistById } from "@/lib/catalogue";
 import { ReleaseCard } from "@/components/release-card";
 import { cx } from "@/lib/cx";
 
@@ -22,7 +22,7 @@ export function MusicCatalogue({
       !enableFilters || filter === "all"
         ? releases
         : releases.filter((release) => release.artistId === filter);
-    return [...selected].sort((a, b) => a.featuredOrder - b.featuredOrder);
+    return [...selected].sort(compareFeatured);
   }, [enableFilters, filter, releases]);
 
   return (
